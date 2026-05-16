@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.paestech.course.entities.Category;
-import com.paestech.course.services.CategoryServices;
+import com.paestech.course.services.CategoryService;
 
 @RestController
-@RequestMapping(value ="/categories")
+@RequestMapping(value = "/categories")
 public class CategoryResource {
-	
-	@Autowired
-	private CategoryServices service;
+
+	@Autowired 
+	private CategoryService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Category>> findAll() {
@@ -30,6 +30,4 @@ public class CategoryResource {
 		Category obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
 }
-

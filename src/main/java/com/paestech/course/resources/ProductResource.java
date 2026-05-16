@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.paestech.course.entities.Product;
-import com.paestech.course.services.ProductServices;
+import com.paestech.course.services.ProductService;
 
 @RestController
-@RequestMapping(value ="/products")
+@RequestMapping(value = "/products")
 public class ProductResource {
-	
-	@Autowired
-	private ProductServices service;
+
+	@Autowired 
+	private ProductService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Product>> findAll() {
@@ -30,6 +30,4 @@ public class ProductResource {
 		Product obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
 }
-
